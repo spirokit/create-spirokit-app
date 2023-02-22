@@ -81,7 +81,7 @@ async function downloadAndExtractExample(
   await tar.x({
     file: tempFile,
     cwd: root,
-    strip: 3,
+    strip: 2,
     filter: (p) => p.includes(`templates-main/${name}/`),
   });
 
