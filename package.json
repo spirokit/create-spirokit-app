@@ -1,6 +1,6 @@
 {
   "name": "create-spirokit-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "@types/async-retry": "1.4.2",
     "@types/cross-spawn": "^6.0.2",
@@ -39,6 +39,6 @@
     "prepublish": "yarn release"
   },
   "bin": {
-    "create-solito-app": "./dist/index.js"
+    "create-spirokit-app": "./dist/index.js"
   }
 }
