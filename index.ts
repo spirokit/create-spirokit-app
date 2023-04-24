@@ -48,7 +48,7 @@ ${chalk.blueBright(
   //   )
   .option(
     `-t, --template <template>`,
-    "Options are `universal-app-template-typescript`, `expo-template-typescript`, `expo-template`. The default is `expo-template-typescript`"
+    "Options are `universal-app-template-typescript`, `expo-template-typescript`, `expo-template`, `lite-template-spirokit`, `ecommerce-app-template`, `travel-app-template`, `expo-router-template`. The default is `expo-template-typescript`"
   )
   .allowUnknownOption()
   .parse(process.argv);
@@ -199,19 +199,41 @@ ${chalk.bold(chalk.red(`Please pick a different project name 🥸`))}`
   console.log(
     `${chalk.green("Success!")} Created ${projectName} at ${projectPath}`
   );
-  console.log("Inside that directory, you can run several commands:");
-  console.log();
-  console.log(chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}web`));
-  console.log("    Starts the development server for the Next.js site.");
-  console.log(chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}native`));
-  console.log();
-  console.log("We suggest that you begin by typing:");
-  console.log();
-  console.log(chalk.cyan("  cd"), projectName);
-  console.log(
-    `  ${chalk.cyan(`${packageManager} ${useYarn ? "" : "run "}web`)}`
-  );
-  console.log();
+
+  if (program.template === "universal-app-template-typescript") {
+    console.log("Inside that directory, you can run several commands:");
+    console.log();
+    console.log(chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}web`));
+    console.log("    Starts the development server for the Next.js site.");
+    console.log(
+      chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}native`)
+    );
+    console.log();
+    console.log("We suggest that you begin by typing:");
+    console.log();
+    console.log(chalk.cyan("  cd"), projectName);
+    console.log(
+      `  ${chalk.cyan(`${packageManager} ${useYarn ? "" : "run "}web`)}`
+    );
+    console.log();
+  } else {
+    console.log(
+      "Inside that directory, you can run the following command to start your app:"
+    );
+    console.log();
+    console.log("    Starts the Expo development server");
+    console.log(
+      chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}start`)
+    );
+    console.log();
+    console.log("We suggest that you begin by typing:");
+    console.log();
+    console.log(chalk.cyan("  cd"), projectName);
+    console.log(
+      `  ${chalk.cyan(`${packageManager} ${useYarn ? "" : "run "}start`)}`
+    );
+    console.log();
+  }
 }
 
 run();
