@@ -19,6 +19,16 @@ const pipeline = promisify(Stream.pipeline);
 
 let projectPath: string = "";
 
+const availableTemplates = [
+  `expo-template-typescript`,
+  `expo-template`,
+  `expo-supabase-template-typescript`,
+  `nextjs-template-typescript`,
+  `universal-app-template`,
+  `ecommerce-app-template`,
+  `travel-app-template`,
+];
+
 const program = new Commander.Command(packageJson.name)
   .version(packageJson.version)
   .arguments("<project-directory>")
@@ -27,9 +37,7 @@ const program = new Commander.Command(packageJson.name)
   
 Example usage:
 
-${chalk.blueBright(
-  `npx ${packageJson.name} universal-app-template-typescript`
-)}`
+${chalk.blueBright(`npx ${packageJson.name} expo-template-typescript`)}`
   )
   .action((name) => {
     projectPath = name;
@@ -48,7 +56,9 @@ ${chalk.blueBright(
   //   )
   .option(
     `-t, --template <template>`,
-    "Options are `universal-app-template-typescript`, `expo-template-typescript`, `expo-template`, `lite-template-spirokit`, `ecommerce-app-template`, `travel-app-template`, `expo-router-template`. The default is `expo-template-typescript`"
+    `Options are ${availableTemplates.join(
+      ","
+    )}. The default is \`expo-template-typescript\``
   )
   .allowUnknownOption()
   .parse(process.argv);
@@ -67,7 +77,7 @@ async function downloadTar(url: string) {
 
 async function downloadAndExtractExample(
   root: string,
-  name = "universal-app-template-typescript"
+  name = "expo-template-typescript"
 ): Promise<void> {
   if (name === "__internal-testing-retry") {
     throw new Error("This is an internal example for testing the CLI.");
@@ -200,7 +210,7 @@ ${chalk.bold(chalk.red(`Please pick a different project name 🥸`))}`
     `${chalk.green("Success!")} Created ${projectName} at ${projectPath}`
   );
 
-  if (program.template === "universal-app-template-typescript") {
+  if (program.template === "universal-app-template") {
     console.log("Inside that directory, you can run several commands:");
     console.log();
     console.log(chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}web`));
