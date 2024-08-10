@@ -1,6 +1,6 @@
 {
   "name": "create-spirokit-app",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "devDependencies": {
     "@types/async-retry": "1.4.2",
     "@types/cross-spawn": "^6.0.2",

@@ -214,7 +214,7 @@ ${chalk.bold(chalk.red(`Please pick a different project name 🥸`))}`
     console.log("Inside that directory, you can run several commands:");
     console.log();
     console.log(chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}web`));
-    console.log("    Starts the development server for the Next.js site.");
+    console.log("Starts the development server for the Next.js site.");
     console.log(
       chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}native`)
     );
@@ -228,10 +228,10 @@ ${chalk.bold(chalk.red(`Please pick a different project name 🥸`))}`
     console.log();
   } else {
     console.log(
-      "Inside that directory, you can run the following command to start your app:"
+      "\nInside that directory, you can run the following command to start your app:"
     );
     console.log();
-    console.log("    Starts the Expo development server");
+    console.log("  Starts the Expo development server");
     console.log(
       chalk.cyan(`  ${packageManager} ${useYarn ? "" : "run "}start`)
     );
